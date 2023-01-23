@@ -1,10 +1,3 @@
-type Customer = {
-  birthday?: Date;
-};
+const customers = ["client1", "client2", "client3"];
 
-function getCustomer(id: number): Customer | null | undefined {
-  return id === 0 ? null : { birthday: new Date() };
-}
-
-let customer = getCustomer(1);
-console.log(customer?.birthday?.getFullYear());
+console.log(customers?.[0]);
