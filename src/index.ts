@@ -1,5 +1,8 @@
-function render(document: unknown) {
-  if (typeof document === "string") {
-    console.log(document);
+function processEvents():never {
+  while (true) {
+    
   }
 }
+
+processEvents();
+console.log('hey');
