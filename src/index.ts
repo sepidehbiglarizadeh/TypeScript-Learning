@@ -1,8 +1,14 @@
-function kgToLbs(weight: number | string): number {
-  if (typeof weight === "number") return weight * 2.2;
-  else return parseInt(weight) * 2.2;
-}
+type Draggable = {
+  drag: () => void
+};
 
-console.log(kgToLbs("2"));
+type Resizable = {
+  resize: () => void
+};
 
+type UIwidget = Draggable & Resizable;
 
+let textBox: UIwidget = {
+  drag: () => {},
+  resize: () => {},
+};
