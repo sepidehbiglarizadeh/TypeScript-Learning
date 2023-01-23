@@ -1,6 +1,10 @@
-function greet(name: string | null | undefined) {
-  if (name) console.log(name.toUpperCase());
-  else console.log("invalid argument");
+type Customer = {
+  birthday?: Date;
+};
+
+function getCustomer(id: number): Customer | null | undefined {
+  return id === 0 ? null : { birthday: new Date() };
 }
 
-greet(undefined);
+let customer = getCustomer(1);
+console.log(customer?.birthday?.getFullYear());
