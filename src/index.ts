@@ -1,4 +1,6 @@
-type Quantity = 50 | 100;
-let quantity: Quantity = 50;
+function greet(name: string | null | undefined) {
+  if (name) console.log(name.toUpperCase());
+  else console.log("invalid argument");
+}
 
-type Metric = "cm" | "inch";
+greet(undefined);
