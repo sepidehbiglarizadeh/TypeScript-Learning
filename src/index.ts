@@ -1,15 +1,19 @@
-abstract class Shape {
-  constructor(public color: string) {}
+// abstract class Calender {
+//   constructor(public name: string) {}
+//   abstract addEvent(): void;
+//   abstract removeEvent(): void;
+// }
 
-  abstract render(): void;
+interface Calender {
+  name: string;
+  addEvent(): void;
+  removeEvent(): void;
 }
 
-class Circle extends Shape {
-  constructor(public radius: number, color: string) {
-    super(color);
-  }
+class GoogleCalender implements Calender {
+  constructor(public name: string) {}
 
-  override render(): void {
-    console.log("rendering a circle");
-  }
+  addEvent(): void {}
+
+  removeEvent(): void {}
 }
