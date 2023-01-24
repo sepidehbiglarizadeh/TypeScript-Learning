@@ -22,10 +22,15 @@ class Student extends Person {
 }
 class Teacher extends Person {
     get fullName() {
-        return "professor" + ' ' + super.fullName;
+        return "professor" + " " + super.fullName;
     }
 }
-const student = new Student(1, "sepi", "bg");
-const teacher = new Teacher("sepi", "bg");
-console.log(teacher.fullName);
+function printNames(people) {
+    for (let person of people)
+        console.log(person.fullName);
+}
+printNames([
+    new Student(1, "sepi", "bg"),
+    new Teacher("mohamad", "seyedAghayi"),
+]);
 //# sourceMappingURL=index.js.map

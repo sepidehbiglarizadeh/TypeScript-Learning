@@ -22,12 +22,16 @@ class Student extends Person {
 
 class Teacher extends Person {
   override get fullName(): string {
-    return "professor" +' '+ super.fullName;
+    return "professor" + " " + super.fullName;
   }
 }
 
-const student = new Student(1, "sepi", "bg");
+function printNames(people: Person[]) {
+  for (let person of people) console.log(person.fullName);
+}
 
-const teacher = new Teacher("sepi", "bg");
+printNames([
+  new Student(1, "sepi", "bg"),
+  new Teacher("mohamad", "seyedAghayi"),
+]);
 
-console.log(teacher.fullName);
