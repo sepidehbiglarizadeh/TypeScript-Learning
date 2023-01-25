@@ -1,19 +1,10 @@
-// abstract class Calender {
-//   constructor(public name: string) {}
-//   abstract addEvent(): void;
-//   abstract removeEvent(): void;
-// }
-
-interface Calender {
-  name: string;
-  addEvent(): void;
-  removeEvent(): void;
+class KeyValuePair<T> {
+  constructor(public key: T, public value: string) {}
 }
 
-class GoogleCalender implements Calender {
-  constructor(public name: string) {}
-
-  addEvent(): void {}
-
-  removeEvent(): void {}
+class KeyValuePair2<K, V> {
+  constructor(public key: K, public value: V) {}
 }
+
+let pair = new KeyValuePair<string>("name", "Apple");
+let pair2 = new KeyValuePair2<string, number>("id", 1);
