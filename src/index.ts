@@ -1,24 +1,32 @@
-// in this senario we have 2 end points
-// 1- /users
-// 2- /products
-
-interface Result<T> {
-  data: T | null;
-  error: string | null;
+function echo<T extends number | string>(value: T): T {
+  return value;
 }
 
-interface User {
-  userName: string;
+// ________________________________________________________
+
+function echo2<T extends { name: string }>(value: T): T {
+  return value;
 }
 
-interface Product {
-  title: string;
+echo2({ name: "sepi" });
+
+// _________________________________________________________
+interface Person {
+  name: string;
 }
 
-function fetch<T>(url: string): Result<T> {
-  console.log(url);
-  return { data: null, error: null };
+function echo3<T extends Person>(value: T): T {
+  return value;
 }
 
-fetch<User>("url");
-fetch<Product>("url");
+// _________________________________________________________
+
+class Person2 {
+  constructor(public name: string) {}
+}
+
+function echo4<T extends Person2>(value: T): T {
+  return value;
+}
+
+echo4(new Person2("sepi"));
