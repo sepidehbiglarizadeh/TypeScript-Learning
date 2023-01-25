@@ -1,32 +1,34 @@
-function echo<T extends number | string>(value: T): T {
-  return value;
-}
-
-// ________________________________________________________
-
-function echo2<T extends { name: string }>(value: T): T {
-  return value;
-}
-
-echo2({ name: "sepi" });
-
-// _________________________________________________________
-interface Person {
+interface Product {
   name: string;
+  price: number;
 }
 
-function echo3<T extends Person>(value: T): T {
-  return value;
+class Store<T> {
+  protected _objects: T[] = [];
+
+  add(obj: T): void {
+    this._objects.push(obj);
+  }
 }
 
-// _________________________________________________________
-
-class Person2 {
-  constructor(public name: string) {}
+// senario 1
+class CompressibleStore<T> extends Store<T> {
+  compress() {}
 }
 
-function echo4<T extends Person2>(value: T): T {
-  return value;
+let store = new CompressibleStore<Product>();
+
+// senario 2
+class SearchableStore<T extends { name: string }> extends Store<T> {
+  find(name: string): T | undefined {
+    return this._objects.find((obj) => obj.name === name);
+  }
 }
 
-echo4(new Person2("sepi"));
+// senario 3
+class ProductStore extends Store<Product> {
+  filterByCategory(category: string): Product[] {
+    console.log(category);
+    return [];
+  }
+}

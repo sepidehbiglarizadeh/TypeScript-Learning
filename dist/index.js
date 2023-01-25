@@ -1,21 +1,25 @@
 "use strict";
-function echo(value) {
-    return value;
-}
-function echo2(value) {
-    return value;
-}
-echo2({ name: "sepi" });
-function echo3(value) {
-    return value;
-}
-class Person2 {
-    constructor(name) {
-        this.name = name;
+class Store {
+    constructor() {
+        this._objects = [];
+    }
+    add(obj) {
+        this._objects.push(obj);
     }
 }
-function echo4(value) {
-    return value;
+class CompressibleStore extends Store {
+    compress() { }
 }
-echo4(new Person2("sepi"));
+let store = new CompressibleStore();
+class SearchableStore extends Store {
+    find(name) {
+        return this._objects.find((obj) => obj.name === name);
+    }
+}
+class ProductStore extends Store {
+    filterByCategory(category) {
+        console.log(category);
+        return [];
+    }
+}
 //# sourceMappingURL=index.js.map
