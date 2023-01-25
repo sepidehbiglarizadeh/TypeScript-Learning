@@ -1,10 +1,5 @@
-class KeyValuePair<T> {
-  constructor(public key: T, public value: string) {}
+function wrapInArray<T>(value: T) {
+  return [value];
 }
 
-class KeyValuePair2<K, V> {
-  constructor(public key: K, public value: V) {}
-}
-
-let pair = new KeyValuePair<string>("name", "Apple");
-let pair2 = new KeyValuePair2<string, number>("id", 1);
+let numbers = wrapInArray<number>(1);
