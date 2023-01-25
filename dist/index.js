@@ -1,16 +1,8 @@
 "use strict";
-class Shape {
-    constructor(color) {
-        this.color = color;
-    }
+function fetch(url) {
+    console.log(url);
+    return { data: null, error: null };
 }
-class Circle extends Shape {
-    constructor(radius, color) {
-        super(color);
-        this.radius = radius;
-    }
-    render() {
-        console.log("rendering a circle");
-    }
-}
+fetch("url");
+fetch("url");
 //# sourceMappingURL=index.js.map
