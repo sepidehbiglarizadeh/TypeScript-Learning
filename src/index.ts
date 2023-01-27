@@ -1,13 +1,12 @@
-interface Product {
-  name: string;
-  price: number;
+function Component(constructor: Function) {
+  console.log("component decorator called");
+  constructor.prototype.uniqueId = Date.now();
+  constructor.prototype.insertDOM = () => {
+    console.log("inserting the component in the DOM");
+  };
 }
 
-type ReadonlyProduct = {
-  readonly [k in keyof Product]: Product[k];
-};
-
-let product: ReadonlyProduct = {
-  name: "a",
-  price: 1,
-};
+@Component
+class ProfileComponent {
+  
+}
