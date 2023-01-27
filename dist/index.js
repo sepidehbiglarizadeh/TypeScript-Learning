@@ -5,10 +5,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-function Component(value) {
+function Component(options) {
     return (constructor) => {
         console.log("component decorator called");
-        constructor.prototype.options = value;
+        constructor.prototype.options = options;
         constructor.prototype.uniqueId = Date.now();
         constructor.prototype.insertDOM = () => {
             console.log("inserting the component in the DOM");
@@ -18,6 +18,6 @@ function Component(value) {
 let ProfileComponent = class ProfileComponent {
 };
 ProfileComponent = __decorate([
-    Component(2)
+    Component({ selector: "#profile-img" })
 ], ProfileComponent);
 //# sourceMappingURL=index.js.map
