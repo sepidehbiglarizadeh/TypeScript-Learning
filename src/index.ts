@@ -13,5 +13,11 @@ function Component(options: ComponentOptions) {
   };
 }
 
+function Pipe(constructor: Function) {
+  console.log("pipe decorator called");
+  constructor.prototype.pipe = true;
+}
+
+@Pipe
 @Component({ selector: "#profile-img" })
 class ProfileComponent {}
